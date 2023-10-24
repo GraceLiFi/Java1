@@ -1,33 +1,19 @@
-package com.xpanxion.assignments.shared;
+package com.xpanxion.assignments.student;
 
 import com.xpanxion.assignments.Person.Person;
 
 import java.util.HashMap;
 
-public class PersonRepository {
-
-    //
-    // Data members
-    //
-
+public class Repository implements DataAccess{
     private final HashMap<Integer, Person> personHashMap;
 
-    //
-    // Constructors
-    //
-
-    public PersonRepository() {
+    public Repository() {
         personHashMap = new HashMap<Integer, Person>();
         personHashMap.put(1, new Person(1, "Alice", "Jones"));
         personHashMap.put(2, new Person(2, "Bob", "Smith"));
         personHashMap.put(3, new Person(3, "Charlie", "Brown"));
     }
-
-    //
-    // Methods
-    //
-
-    public Person getPerson(Integer personId) {
-        return personHashMap.get(personId);
+    public Person getPerson(int id) {
+        return personHashMap.get(id);
     }
 }
