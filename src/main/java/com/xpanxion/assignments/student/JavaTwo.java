@@ -109,9 +109,10 @@ public class JavaTwo {
                 new Person(3, "Sue", "Anderson"));
 
 
-        personList.stream().map(e -> e.setLastNameFor7("xxx")).collect(Collectors.toList());
-
-        System.out.println(personList);
+        List<Person> newPersonList = personList.stream().map(person -> new Person(person.getId(), person.getFirstName(), "xxx")).collect(Collectors.toList());
+        for (Person p: newPersonList) {
+            System.out.println(p);
+        }
     }
 
     public void ex8() {
@@ -131,9 +132,9 @@ public class JavaTwo {
                 new Person(3, "Adam", "Anderson")
         );
         List<Person> filteredList = new ArrayList<>();
-        for (Person person : personList) {
-            if (person.getLastName().equals("Smith")) {
-                filteredList.add(person);
+        for (int i = 0; i < personList.size(); i++) {
+            if (personList.get(i).getLastName().equals("Smith")) {
+                filteredList.add(personList.get(i));
             }
         }
         for (Person p : filteredList) {
